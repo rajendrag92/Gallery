@@ -21,19 +21,18 @@ class ImageGallery {
     }
 
     BindCustomEvents() {
-        let _this = this;
 
-        window.onscroll = function () {
-            _this.index++;
-            _this.DrawImageGallery();
+        window.onscroll = () => {
+            this.index++;
+            this.DrawImageGallery();
         };
 
-        window.onload = function () {
-            _this.DrawImageGallery();
+        window.onload = () => {
+            this.DrawImageGallery();
         };
 
-        window.onresize = function () {
-            _this.DrawImageGallery();
+        window.onresize = () => {
+            this.DrawImageGallery();
         }
     }
 }
