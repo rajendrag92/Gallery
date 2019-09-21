@@ -11,8 +11,6 @@ class ImageLargeView {
     }
 
     InitializeOverLay() {
-        let _this = this;
-
         this.largeView = document.getElementById('largeImage');
 
         this.largeView.style.width = '100%';
@@ -25,9 +23,9 @@ class ImageLargeView {
         this.largeView.style.backgroundColor = "rgba(0,0,0,0.5)";
         this.largeView.style.zIndex = "2";
 
-        this.largeView.onclick = function () {
-            _this.CloseLargeView();
-        }
+        this.largeView.onclick =  () => {
+            this.CloseLargeView();
+        };
 
     }
 
@@ -42,21 +40,21 @@ class ImageLargeView {
     }
 
     AppendImage() {
-        let image = new Image(), _this = this;
+        let image = new Image();
         image.src = this.imageData.urls.regular;
         image.style.width = this.viewPort.largeImageStyle.width;
         image.style.height = this.viewPort.largeImageStyle.height;
         image.style.marginLeft = this.viewPort.largeImageStyle.marginLeft;
         image.style.cursor = "pointer";
         image.style.float = "left";
-        image.onclick = function () {
-            _this.CloseLargeView();
+        image.onclick = () => {
+            this.CloseLargeView();
         }
         this.imagePlaceholder.appendChild(image);
     }
 
     AppendCloseButton() {
-        let closeButton = document.createElement("div"), _this = this;
+        let closeButton = document.createElement("div");
         closeButton.innerText = "Close";
         closeButton.style.margin = "0% 0% 97% 2%";
         closeButton.style.cursor = "pointer";
@@ -64,9 +62,10 @@ class ImageLargeView {
         closeButton.style.fontSize = "20px";
         closeButton.style.color = "wheat";
 
-        closeButton.onclick = function () {
-            _this.CloseLargeView();
+        closeButton.onclick = () => {
+            this.CloseLargeView();
         };
+
         this.imagePlaceholder.appendChild(closeButton);
 
     }
