@@ -21,11 +21,11 @@ class ViewPortFactory {
         this.viewPorts[smallestViewPort.maxWidth] = smallestViewPort;
     }
 
-    GetImageSize(windowWidth) {
+    GetViewPort(windowWidth) {
 
         let key = Object.keys(this.viewPorts).map(e => parseInt(e)).find(e => e >= windowWidth);
 
-        return this.viewPorts[key].GetImageSize();
+        return this.viewPorts[key];
     }
 
 }

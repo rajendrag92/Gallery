@@ -5,5 +5,11 @@ class SmallDeviceViewPort extends ViewPort {
         super(minWidth, maxWidth, 200);
 
         this.columnSize = 6;
+        this.largeImageStyle = {
+            width: "80%",
+            height: "100%",
+            marginLeft: "10%",
+        };
     }
+
 }

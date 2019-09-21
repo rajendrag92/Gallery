@@ -3,22 +3,24 @@
 
 class ImageTemplate {
 
-    constructor(imageData, rootElement = "", size) {
+    constructor(imageData, rootElement = "", viewPort) {
         this.imageData = imageData;
         this.rootElement = rootElement;
-        this.size = size;
+        this.viewPort = viewPort;
         this.isLargeView = false;
     }
 
     DrawImage(srcUrl) {
         let _this = this;
-        let image = new Image()
+        let image = new Image();
+        let imageSize = this.viewPort.GetImageSize();
+
         image.src = srcUrl;
-        image.width = this.size.width;
-        image.height = this.size.height;
+        image.width = imageSize.width;
+        image.height = imageSize.height;
         image.style.margin = "10px";
         image.style.cursor = "pointer";
-      
+
         image.onclick = function () {
             _this.ShowLargeView();
         }
@@ -33,6 +35,6 @@ class ImageTemplate {
 
     ShowLargeView() {
         this.isLargeView = !this.isLargeView;
-        let largeView = new ImageLargeView(this.imageData, this.size);
+        let largeView = new ImageLargeView(this.imageData, this.viewPort);
     }
 }

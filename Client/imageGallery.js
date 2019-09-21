@@ -6,19 +6,16 @@ class ImageGallery {
         this.index = 0;
         this.baseUrl = baseUrl
         this.rootElement = rootElement;
-        //this.GetImageData();
         this.BindCustomEvents();
     }
 
     async DrawImageGallery() {
-        let viewPort = new ViewPortFactory();
-        let imageSize = viewPort.GetImageSize(window.innerWidth);
-
+        let viewPort = new ViewPortFactory().GetViewPort(window.innerWidth);
         let repo = new ImageGalleryRepositry(this.baseUrl);
         let pageData = await repo.GetImageGallery(this.index);
 
         pageData.forEach(element => {
-            let image = new ImageTemplate(element, this.rootElement, imageSize);
+            let image = new ImageTemplate(element, this.rootElement, viewPort);
             image.Append();
         });
     }
@@ -31,17 +28,17 @@ class ImageGallery {
             _this.DrawImageGallery();
         };
 
-        window.onload = function(){
+        window.onload = function () {
             _this.DrawImageGallery();
         };
 
-        window.onresize = function(){
+        window.onresize = function () {
             _this.DrawImageGallery();
-        } 
+        }
     }
 }
 
 (function () {
-    let imageGallery = new ImageGallery(window.location.href,"imageGallery");
+    let imageGallery = new ImageGallery(window.location.href, "imageGallery");
 }
 )()

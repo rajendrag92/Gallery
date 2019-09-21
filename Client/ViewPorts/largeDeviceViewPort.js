@@ -3,5 +3,11 @@ class LargeDeviceViewPort extends ViewPort {
 
         super(minWidth, maxWidth, 400);
         this.columnSize = 3;
+        this.largeImageStyle = {
+            width: "40%",
+            height: "100%",
+            marginLeft: "30%",
+        };
     }
+
 }
