@@ -1,9 +1,10 @@
 'use strict'
 class ViewPort {
 
-    constructor(width, height) {
+    constructor(maxWidth, minWidth, height = 0) {
 
-        this.width = width;
+        this.maxWidth = maxWidth;
+        this.minWidth = minWidth;
         this.height = height;
         this.gridSize = 12;
         this.columnSize = 1;
@@ -12,7 +13,7 @@ class ViewPort {
     GetImageSize() {
 
         return {
-            width: (this.width / 12) * this.columnSize,
+            width: (this.maxWidth / 12) * this.columnSize,
             height: this.height
         }
     }
