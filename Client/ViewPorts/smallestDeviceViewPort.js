@@ -1,3 +1,4 @@
+
 class SmallestDeviceViewPort extends ViewPort {
 
     constructor(maxWidth = 480, minWidth = 320) {
