@@ -1,4 +1,5 @@
 
+'use strict';
 class SmallDeviceViewPort extends ViewPort {
     constructor(maxWidth = 767, minWidth = 481) {
 

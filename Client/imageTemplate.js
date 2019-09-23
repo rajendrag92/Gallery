@@ -1,5 +1,6 @@
 
 
+'use strict';
 class ImageTemplate {
 
     constructor(imageData, rootElement = "", viewPort) {

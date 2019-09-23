@@ -1,4 +1,5 @@
 
+'use strict';
 class ViewPort {
 
     constructor(maxWidth, minWidth, height = 0) {

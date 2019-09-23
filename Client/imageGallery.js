@@ -1,4 +1,4 @@
-
+'use strict';
 class ImageGallery {
 
     constructor(baseUrl, rootElement) {
@@ -6,6 +6,8 @@ class ImageGallery {
         this.baseUrl = baseUrl
         this.rootElement = rootElement;
         this.BindCustomEvents();
+        this.last_known_scroll_position = 0;
+        this.ticking = false;
     }
 
     async DrawImageGallery() {
@@ -22,8 +24,10 @@ class ImageGallery {
     BindCustomEvents() {
 
         window.onscroll = () => {
-            this.index++;
-            this.DrawImageGallery();
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+                this.index++;
+                this.DrawImageGallery();
+            }
         };
 
         window.onload = () => {

@@ -1,4 +1,5 @@
 
+'use strict';
 class ImageLargeView {
 
     constructor(imageData, viewPort) {
